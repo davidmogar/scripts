@@ -27,7 +27,7 @@ url = """ + host + """
 private_token = """ + token)
 
 def fetch_repositories():
-  gl = gitlab.Gitlab.from_config('gitlab', ['~/.python-gitlab.cfg'])
+  gl = gitlab.Gitlab.from_config('gitlab', [os.path.expanduser('~') + '/.python-gitlab.cfg'])
   gl.auth()
 
   projects = gl.projects.search(args.name)
